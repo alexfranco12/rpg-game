@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/styles/GlobalStyles.css" rel="stylesheet">
+  <link href="/styles/LandingPage.css" rel="stylesheet">
+  <title>Ninja World</title>
+</head>
+<body>
+  <!-- The video -->
+  <video autoplay muted loop id="background-video">
+    <source 
+      src="./assets/animated_japan.mp4" 
+      type="video/mp4">
+  </video>
+
+  <div class="content">
+    <!-- title -->
+    <h1>Ninja Survival Game</h1>
+
+    <div class="button-container">
+      <!-- play button -->
+      <a href="/overworld.html">
+        <button class="button play-button"> 
+          PLAY
+        </button>
+      </a>
+
+      <!-- instruction button -->
+      <button  
+        class="button instructions-button" 
+        id="open-modal"
+        > How To Play
+      </button>
+    </div>
+  </div>
+
+
+  <!-- MODAL -->
+  <div class="Modal" id="modal">
+    <div class="Textbox">
+      <h1>
+        <span>How To Play</span></br>
+        <span>Survival Ninja Game</span>
+      </h1>
+      <div class="Textbox__content">
+        <p>Explore the map and defeat all monster before they defeat you!</p>
+        <h4> Buttons </h4>
+        <p>a - move left</p>
+        <p>d - move right</p>
+        <p>w - move up</p>
+        <p>s - move down</p>
+        <p>left mouse click - attack</p>
+      </div>
+      
+      <div class="Modal__footer">
+        <!-- close modal button -->
+        <button 
+          class="Modal__close-button button"
+          id="close-modal"
+          > CLOSE
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- SCRIPT FILES -->
+  <script src="./src/landingPage/LandingPage.js"></script>
+</body>
+</html>

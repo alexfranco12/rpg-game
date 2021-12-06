@@ -1,0 +1,103 @@
+/* Style the video: 100% width and height to cover the entire window */
+#background-video {
+  position: relative;
+  z-index: -1;
+}
+/* Add some content at the bottom of the video/page */
+.content {
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  color: #f1f1f1;
+  width: 100%;
+  z-index: 1;
+}
+
+.button-container {
+  display: flex;
+}
+.button {
+  background: #000;
+  font-size: 18px;
+  padding: 10px 0;
+  margin: 10px;
+  height: auto;
+  width: 180px;
+  border: solid;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+}
+.button:hover {
+  background: #ddd;
+  color: black;
+}
+
+/* 
+ * ---------- MODAL ----------
+ */
+.Modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(251, 219, 156, 0.35);
+  display: none;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  z-index: 5;
+}
+.Textbox {
+  position: relative;
+  margin: 10rem auto;
+  padding: 2% 6%;
+  height: auto;
+  width: 50%;
+  background-color: whitesmoke;
+  border-radius: 5px;
+  box-shadow: 0 3px 3px black;
+}
+.Textbox > h1 {
+  text-align: center;
+}
+.Textbox__content {
+  text-align: justify;
+  margin: 20px auto;
+}
+.Modal__close-button {
+  position: absolute;
+  right: 6%;
+  bottom: 1px;
+  background-color: black;
+  color: white;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  #background-video {
+      width:100%;
+      height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  #background-video { 
+      width:auto;
+      height: 100%;
+  }
+}
+
+/* @media (max-width: 767px) {
+  #videoBG {
+      display: none;
+  }
+  body {
+      background: url('poster.jpg');
+      background-size: cover;
+  }
+} */
