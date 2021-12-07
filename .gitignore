@@ -1,5 +1,6 @@
 # .gitignore 
 node_modules
+/maps-tiled
 TODO
 
 ### VisualStudioCode ###
