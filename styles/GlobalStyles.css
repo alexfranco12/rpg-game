@@ -9,7 +9,7 @@
 }
 
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -27,11 +27,15 @@ button, a {
   cursor: pointer;
 }
 
+.Overworld {
+  display: flex;
+  justify-content: center;
+}
+
 .game-container {
-  position: relative; 
+  position: relative;
   width: 352px;
-  height: 198px;
-  margin: 0 auto;
+  height: 224px;
   outline: 1px solid #fff;
 
   transform: scale(3) translateY(50%);
@@ -39,4 +43,16 @@ button, a {
 
 .game-container canvas {
   image-rendering: pixelated;
+}
+
+@media only screen and (max-width: 1024px) {
+  .game-container {
+    transform: scale(2.25) translateY(50%);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .game-container {
+    transform: scale(1.75) translateY(50%);
+  }
 }
