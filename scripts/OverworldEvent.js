@@ -10,7 +10,24 @@ class OverworldEvent {
     })
   }
 
+  pause(resolve) {
+    this.map.isPaused = true;
+    const menu = new PauseMenu({
+      onComplete: () => {
+        resolve();
+        this.map.isPaused = false;
+        this.map.overworld.startGameLoop();
+      }
+    });
+    menu.init(document.querySelector(".game-container"));
+  }
+
   textMessage(resolve) {
+    if (this.event.faceHero) {
+      const who = this.map.gameObjects[this.event.faceHero];
+      who.direction = utils.oppositeDirection(this.map.gameObjects["hero"].direction)
+    }
+
     const message = new TextMessage({
       text: this.event.text,
       onComplete: () => resolve()
@@ -49,12 +66,31 @@ class OverworldEvent {
     });
 
     // set up a handler to complete when correct person is done walking, then resolve the event
-    const completeHandler = e => {
+    const completeHandler = (e) => {
       if (e.detail.whoId === this.event.who) {
         document.removeEventListener("PersonWalkingComplete", completeHandler);
         resolve();
       }
     }
     document.addEventListener("PersonWalkingComplete", completeHandler)
+  }
+
+  changeMap(resolve) {
+    const transition = new SceneTransition();
+    transition.init(document.querySelector(".game-container"), () => {
+      this.map.overworld.startMap(window.OverworldMaps[this.event.map], {
+        x: this.event.x,
+        y: this.event.y,
+        direction: this.event.direction,
+      });
+      resolve();
+
+      transition.fadeOut();
+    })
+  }
+
+  addStoryFlag(resolve) {
+    window.playerState.storyFlags[this.event.flag] = true;
+    resolve();
   }
 }

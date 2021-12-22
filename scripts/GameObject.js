@@ -9,7 +9,7 @@ class GameObject {
       src: config.src || '/assets/actors/characters/GreenNinja/SpriteSheet.png',
     });
     this.behaviorLoop = config.behaviorLoop || [];
-    this.behaviorLoopIndex = 0;
+    this.behaviorLoopIndex = this.behaviorLoopIndex || 0;
 
     this.talking = config.talking || [];
   }
@@ -24,7 +24,11 @@ class GameObject {
 
     setTimeout(() => {
       this.doBehaviorEvent(map)
-    }, 10)
+    }, 100)
+  }
+
+  update() {
+    
   }
 
   async doBehaviorEvent(map) {
@@ -45,10 +49,7 @@ class GameObject {
       this.behaviorLoopIndex = 0;
     }
 
+    // do it again
     this.doBehaviorEvent(map);
-  }
-
-  update() {
-
   }
 }

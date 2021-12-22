@@ -26,6 +26,7 @@ button, a {
   align-items: center;
   text-decoration: none;
   cursor: pointer;
+  --webkit-appearance: none;
 }
 
 .Overworld {

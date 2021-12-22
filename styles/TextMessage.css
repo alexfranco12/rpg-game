@@ -17,9 +17,17 @@
   margin: 0;
   font-size: 8px;
 }
+.TextMessage span {
+  opacity: 0;
+}
+.TextMessage span.revealed {
+  opacity: 1;
+}
+
 .TextMessage__button {
   position: absolute;
   bottom: 10px;
   right: 10px;
   font-size: 6px;
+  -webkit-appearance: none;
 }

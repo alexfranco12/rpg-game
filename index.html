@@ -4,70 +4,53 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="/styles/GlobalStyles.css" rel="stylesheet">
-  <link href="/styles/LandingPage.css" rel="stylesheet">
+  
+  <!-- STYLES -->
+  <link href="/styles/GlobalStyles.css" type="text/css" rel="stylesheet">
+  <link href="/styles/TextMessage.css" type="text/css" rel="stylesheet">
+  <link href="/styles/SceneTransition.css" type="text/css" rel="stylesheet">
+  <link href="/styles/KeyboardMenu.css" type="text/css" rel="stylesheet">
+  <link href="/styles/Menus.css" type="text/css" rel="stylesheet">
+  <link href="/styles/TitleScreen.css" type="text/css" rel="stylesheet">
+  
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
   <title>Ninja World</title>
 </head>
-<body>
-  <!-- The video -->
-  <video autoplay muted loop id="background-video">
-    <source 
-      src="./assets/animated_japan.mp4" 
-      type="video/mp4">
-  </video>
-
-  <div class="content">
-    <!-- title -->
-    <h1>Ninja Survival Game</h1>
-
-    <div class="button-container">
-      <!-- play button -->
-      <a href="/overworld.html">
-        <button class="button play-button"> 
-          PLAY
-        </button>
-      </a>
-
-      <!-- instruction button -->
-      <button  
-        class="button instructions-button" 
-        id="open-modal"
-        > How To Play
-      </button>
-    </div>
+<body class="Overworld">
+  <div class="game-container">
+    <canvas
+      class="game-canvas"
+      width=352
+      height=224
+    />
   </div>
 
+  <!-- CONTENT -->
 
-  <!-- MODAL -->
-  <div class="Modal" id="modal">
-    <div class="Textbox">
-      <h1>
-        <span>How To Play</span></br>
-        <span>Survival Ninja Game</span>
-      </h1>
-      <div class="Textbox__content">
-        <p>Explore the map and defeat all monster before they defeat you!</p>
-        <h4> Buttons </h4>
-        <p>a - move left</p>
-        <p>d - move right</p>
-        <p>w - move up</p>
-        <p>s - move down</p>
-        <p>left mouse click - attack</p>
-      </div>
-      
-      <div class="Modal__footer">
-        <!-- close modal button -->
-        <button 
-          class="Modal__close-button button"
-          id="close-modal"
-          > CLOSE
-        </button>
-      </div>
-    </div>
-  </div>
+  <!-- STATE -->
+  <script src="/scripts/state/PlayerState.js"></script>
 
-  
-  <!-- SCRIPT FILES -->
-  <script src="/scripts/landingPage/LandingPage.js"></script>
+  <!-- scripts -->
+  <script src="/scripts/utils.js"></script>
+  <script src="/scripts/DirectionInput.js"></script>
+  <script src="/scripts/Overworld.js"></script>
+  <script src="/scripts/GameObject.js"></script>
+  <script src="/scripts/Person.js"></script>
+  <script src="/scripts/Sprite.js"></script>
+  <script src="/scripts/OverworldMap.js"></script>
+  <script src="/scripts/OverworldEvent.js"></script>
+  <script src="/scripts/TextMessage.js"></script>
+  <script src="/scripts/KeyPressListener.js"></script>
+  <script src="/scripts/SceneTransition.js"></script>
+  <script src="/scripts/RevealingText.js"></script>
+  <script src="/scripts/KeyboardMenu.js"></script>
+  <script src="/scripts/Hud.js"></script>
+  <script src="/scripts/PauseMenu.js"></script>
+  <script src="/scripts/TitleScreen.js"></script>
+
+  <script src="/scripts/init.js"></script>
 </body>
 </html>

@@ -1,0 +1,52 @@
+.TitleScreen {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #000;
+}
+
+/* Style the video: 100% width and height to cover the entire window */
+#background-video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+}
+.content > h1 {
+  text-align: center;
+  color: #fff;
+}
+
+.TitleScreen .KeyboardMenu {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: 0;
+}
+.TitleScreen button {
+  color: #fff;
+  width: 100px;
+  margin: auto;
+  padding: 0;
+  background-color: #000;
+  border-radius: 4px;
+}
+.TitleScreen .DescriptionBox {
+  background: transparent;
+  color: #fff;
+  border: 0;
+  text-align: center;
+}

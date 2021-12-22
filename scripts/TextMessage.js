@@ -8,11 +8,18 @@ class TextMessage {
   init(container) {
     this.createElement();
     container.appendChild(this.element);
+    this.revealingText.init();
   }
 
   done() {
-    this.element.remove();
-    this.onComplete();
+    if (this.revealingText.isDone) {
+      this.element.remove();
+      this.actionListener.unbind();
+      this.onComplete();
+    } else {
+      this.revealingText.warpToDone();
+    }
+    
   }
 
   createElement() {
@@ -20,17 +27,22 @@ class TextMessage {
     this.element.classList.add("TextMessage");
 
     this.element.innerHTML = (`
-      <p class="TextMessage__p">${this.text}</p>
+      <p class="TextMessage__p"></p>
       <button class="TextMessage__button">Next</button>
     `)
 
+    // typewriter effect
+    this.revealingText = new RevealingText({
+      element: this.element.querySelector(".TextMessage__p"),
+      text: this.text,
+    })
+
+    // close message
     this.element.querySelector("button").addEventListener("click", () => {
-      // close message
       this.done();
     })
 
     this.actionListener = new KeyPressListener("Enter", () => {
-      this.actionListener.unbind();
       this.done();
     })
   }

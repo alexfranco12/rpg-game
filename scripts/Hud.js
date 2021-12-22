@@ -1,0 +1,9 @@
+class Hud {
+  constructor() {
+
+  }
+
+  init() {
+    
+  }
+}

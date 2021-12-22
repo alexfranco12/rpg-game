@@ -1,6 +1,8 @@
 /* Style the video: 100% width and height to cover the entire window */
 #background-video {
   position: relative;
+  background-position: center;
+  background-size: cover;
   z-index: -1;
 }
 /* Add some content at the bottom of the video/page */
@@ -78,7 +80,7 @@
   color: white;
 }
 
-@media (min-aspect-ratio: 16/9) {
+/* @media (min-aspect-ratio: 16/9) {
   #background-video {
       width:100%;
       height: auto;
@@ -90,7 +92,7 @@
       width:auto;
       height: 100%;
   }
-}
+} */
 
 /* @media (max-width: 767px) {
   #videoBG {

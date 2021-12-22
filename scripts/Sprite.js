@@ -47,7 +47,7 @@ class Sprite {
   }
 
   setAnimation(key) {
-    if (this.currentAnimation != key) {
+    if (this.currentAnimation !== key) {
       this.currentAnimation = key;
       this.currentAnimationFrame = 0;
       this.animationFrameProgress = this.animationFrameLimit;
@@ -64,22 +64,25 @@ class Sprite {
     // start next animation
     this.animationFrameProgress = this.animationFrameLimit;
     this.currentAnimationFrame += 1;
+
     if (this.frame === undefined) {
       this.currentAnimationFrame = 0;
     }
   }
 
+  // draw sprite to canvas
   draw(ctx, cameraPerson) {
     const x = this.gameObject.x + utils.withGrid(10.5) - cameraPerson.x;
     const y = this.gameObject.y + utils.withGrid(6) - cameraPerson.y;
-
-    this.isShadowLoaded && ctx.drawImage(
-      this.shadow, 0, 0, 16, 16, x+2, y+12, 16, 16 
-    )
-
     const [frameX, frameY] = this.frame;
+
+    this.isShadowLoaded && ctx.drawImage(this.shadow, x+2, y+12)
     this.isLoaded && ctx.drawImage( 
-      this.image, frameX * 16, frameY * 16, 16, 16, x, y, 16, 16 
+      this.image, 
+      frameX * 16, frameY * 16, 
+      16, 16, 
+      x, y, 
+      16, 16 
     );
 
     this.updateAnimationProgress()
